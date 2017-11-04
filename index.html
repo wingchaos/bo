@@ -1,6 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
+<title>波波ACT美化</title>
 <link rel="stylesheet" href="enmity.css">
 <script src="config/jquery.js"></script>
 
@@ -246,31 +247,7 @@ zooom{
 		var prevRank;
 		
 				// ACTWebSocket 적용    
-  var wsUri = "ws://127.0.0.1/MiniParse";
-  function connectWebSocket(uri)
-  {
-    websocket = new WebSocket(uri);
-    websocket.onmessage = function(evt) {
-      if (evt.data == ".")
-      {
-        // ping pong
-        websocket.send(".");
-      }
-      else
-      {
-        document.dispatchEvent(new CustomEvent('onOverlayDataUpdate', { detail: JSON.parse(evt.data) }));
-      }
-    };
-
-    //websocket.onopen = function(evt) { };
-    websocket.onclose = function(evt) { 
-      setTimeout(function(){connectWebSocket(uri)}, 5000);
-    };
-    websocket.onerror = function(evt) {
-      websocket.close();
-    };
-  }    
-  connectWebSocket(wsUri);
+  
 // 해상도 변경 적용
   function windowmode() {
     var el = document
@@ -670,7 +647,32 @@ zooom{
 				return name;
 			}
 		}
-		
+		var wsUri = "ws://@HOST_PORT@/MiniParse";
+ //var wsUri = "ws://now.wchaos.xyz/MiniParse";
+  function connectWebSocket(uri)
+  {
+    websocket = new WebSocket(uri);
+    websocket.onmessage = function(evt) {
+      if (evt.data == ".")
+      {
+        // ping pong
+        websocket.send(".");
+      }
+      else
+      {
+        document.dispatchEvent(new CustomEvent('onOverlayDataUpdate', { detail: JSON.parse(evt.data) }));
+      }
+    };
+
+    //websocket.onopen = function(evt) { };
+    websocket.onclose = function(evt) { 
+      setTimeout(function(){connectWebSocket(uri)}, 5000);
+    };
+    websocket.onerror = function(evt) {
+      websocket.close();
+    };
+  }    
+  connectWebSocket(wsUri);
 		
 		function updateTest() {
 			update(dataset[0]);

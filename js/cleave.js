@@ -93,10 +93,10 @@ try
 	if(typeof(host_port) === "undefined")
 	{
 		/* FOR LOCAL TEST */
-		if (document.location.href.indexOf("file")>-1)
-		{
+	//	if (document.location.href.indexOf("file")>-1)
+	//	{
 			wsUri = "ws://act.s1.natapp.cc/MiniParse";
-		}
+//		}
 	}
 	else
 	{

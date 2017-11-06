@@ -697,7 +697,7 @@ zooom{
 				  $(".td11").hide();
 				  $(".td2").show();
 				  $("#dvi2").hide(1500);
-				
+				$('html').css('background','none');
 				   $("#encounter").animate({opacity:0.3});
 				  
 				  });
@@ -705,6 +705,7 @@ zooom{
 				  $(".td2").hide();
 				  $(".td11").show();
 				  $("#dvi2").show(1500);
+				  $('html').css("background-image","url('images/BG.jpg')");
 				  $("#encounter").animate({opacity:1});
 				  });
 				});
@@ -712,7 +713,7 @@ zooom{
 	</script>
 </head>
 <body >
-<div id="zooom" background-image=url('images/BG.jpg');>
+<div id="zooom" >
 <button class="td2" >Show</button> 
 <button class="td11" >Hide</button> 
 

@@ -95,7 +95,7 @@ try
 		/* FOR LOCAL TEST */
 		if (document.location.href.indexOf("file")>-1)
 		{
-			wsUri = "ws://ws://act.s1.natapp.cc/MiniParse";
+			wsUri = "ws://act.s1.natapp.cc/MiniParse";
 		}
 	}
 	else

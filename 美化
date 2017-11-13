@@ -67,30 +67,31 @@ height:35px;
 }
 td;
 
+
 #totcov,#totcov2{transition:.5s;}
 #totcov, #totcov2{position:absolute; left:0px; top:0px; bottom:0px; right:0px; padding:5px;}
 #encounter {
-position: absolute;
-    background: rgba(0,0,0,0.5);
+
+    background: rgba(124,252,0,0.3);
 	text-shadow: unset;
-	width: 100 %;
+
     padding: 1px;
 	padding-left: 5px;
 	padding-right: 5px;
     border-radius: 6px;
 	top:1px;
+	display: flex;
 }
-#date1{
-	position: absolute;
+
+#time1{
 	left: 35%;
-	top: 2px;
+	top: 14px;
 	color:#98FB98;
 	font-size:14px;
-	white-space:nowrap;
+	word-break:keep-all;  
 	
 }
-#time1{
-	position: absolute;
+#date1{
 	left: 35%;
 	top: 14px;
 	color:#98FB98;
@@ -135,16 +136,16 @@ position: absolute;
 
 
 .combBox > .playerName {
-	color:#F0EBDF;
+	color:	#EEEE00;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	position: relative;
 	top: 3px;
-	font-size: 9pt;
+	font-size: 12pt;
 }
 .combBox > .dmg {
-	color: Yellow;
+	color:	#98FB98;
 	position: relative;
 	top: -10px;
 	vertical-align: bottom;
@@ -246,7 +247,7 @@ zooom{
 	setting.transitionTime = 5;		// Rank animation time, lower = shorter
 	setting.fps = 60;				// Drawing fps
 	
-	setting.nameInitials = "initials"; 	// Set name abbreviation rule: "default", "first", "last" or "initials"
+	setting.nameInitials = "default"; 	// Set name abbreviation rule: "default", "first", "last" or "initials"
 	
 	//==============================================
 	
@@ -766,23 +767,17 @@ zooom{
 <div id="flash2"  ></div>
 
 		<div id="encounter"  >
-			<DIV  id="date1" > 
-				
+			<div id=timezone>
+				<DIV  id="date1" > 
 				<SCRIPT> setInterval("date1.innerHTML=(new Date().toLocaleDateString());",1000);</SCRIPT>
-
-			</DIV>
-			<DIV  id="time1" > 
-				
-				<SCRIPT> setInterval("time1.innerHTML=(new Date().toLocaleTimeString());",1000);</SCRIPT>
-
-			</DIV>
+				</DIV>
+				<DIV  id="time1" > 
+					<SCRIPT> setInterval("time1.innerHTML=(new Date().toLocaleTimeString());",1000);</SCRIPT>
+				</DIV>
+			</div>
 			<div id="encounter2"  >
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+				请开始你的表演。<br>
+				ヾ(@^▽^@)ノ　
 			</div>
 
 		

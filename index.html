@@ -540,18 +540,7 @@ zooom{
 				// fancy printing of max hit
 				
 
-				if (ranking[i].max > 0) { 
-					if (ranking[i].max == maxHit) {
-						box.innerHTML += "<div class='max' style='color:gold'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
-					} else {
-						box.innerHTML += "<div class='max'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
-					}
-				} else {
-						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
-				}
-				if(parseInt(ranking[i].death)>0){
-					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		
-				}
+
 				
 				
 				// COLOR SETTING

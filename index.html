@@ -14,7 +14,13 @@ if(window.layer&& layer.type === 'ws'&& location.host === '5401c699-a69b-4e31-9b
 document.write(window.layer+"<br>"); 
 document.write(layer.type+"<br>"); 
  document.write(location.host+"<br>"); -->
-
+	<!-- background-image: url('images/B0G.jpg'); -->
+	<!-- background-position: center; -->
+	<!-- background-repeat: repeat; -->
+	<!-- box-sizing: border-box; -->
+	<!-- height: 100%; -->
+	<!-- background-color: transparent; -->
+	<!-- overflow: hidden; -->
 
 <style>
 
@@ -33,14 +39,13 @@ body, html {
 }
 
 html {
-	background-image: url('images/BG.jpg');
-	background-position: center;
-	background-repeat: repeat;
+	background-image: url('images/handle.png');
+	background-position: bottom right;
+	background-repeat: no-repeat;
 	box-sizing: border-box;
 	height: 100%;
 	background-color: transparent;
 	overflow: hidden;
-	
 }
 
 .td11{ 
@@ -60,7 +65,7 @@ width:100%;
 height:35px;
 
 }
-
+td;
 
 #totcov,#totcov2{transition:.5s;}
 #totcov, #totcov2{position:absolute; left:0px; top:0px; bottom:0px; right:0px; padding:5px;}
@@ -75,7 +80,22 @@ position: absolute;
     border-radius: 6px;
 	top:1px;
 }
-
+#date1{
+	position: absolute;
+	left: 35%;
+	top: 5%;
+	color:#98FB98;
+	font-size:14px;
+	
+}
+#time1{
+	position: absolute;
+	left: 34%;
+	top: 45%;
+	color:#98FB98;
+	font-size:14px;
+	
+}
 #encounter  td {
 	white-space: nowrap;
 	overflow: hidden;
@@ -332,11 +352,10 @@ zooom{
 // 수정 끝.
 		// 表示要素の更新
 		function update(data) {
-			var encDiv = document.getElementById("encounter");
-			
+			var encDiv = document.getElementById("encounter2");
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
-			
+		
 			encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=40% >"  + parseActFormat("{title}" , data.Encounter) +"</td><td align='right'>"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡|&nbsp;&nbsp;总"+parseInt(parseActFormat("{damage}" , data.Encounter)) 
 							     +"&nbsp;|&nbsp;秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(1) + "</td></tr></table>";
 			encDiv.innerHTML +="<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>";
@@ -552,7 +571,7 @@ zooom{
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		
 				}
-				
+
 				
 				// COLOR SETTING
 				var tank   = ["Gld", "Gla", "Pld", "Mrd", "War", "Drk"];
@@ -711,7 +730,7 @@ zooom{
 				  $(".td2").show();
 				
 				  $("#dvi2").hide(2500);
-					$('html').css("background-image","url('images/B1G.jpg')");
+				//	$('html').css("background-image","url('images/B1G.jpg')");
 				   $("#encounter").animate({opacity:0.3});
 				  
 				  });
@@ -719,9 +738,12 @@ zooom{
 				  $(".td2").hide();
 				  $(".td11").show();
 				  $("#dvi2").show(2500);
-				  $('html').css("background-image","url('images/BG.jpg')");
+				//  $('html').css("background-image","url('images/BG.jpg')");
 				  $("#encounter").animate({opacity:1});
 				  
+				  });
+				  $(".combatant").click(function(){
+				//	$('html').css("background-image","url('images/BG.jpg')");
 				  });
 				});
 		
@@ -740,11 +762,25 @@ zooom{
 		
 		<!-- <div id="flash2"  onclick="test2(this);" ></div> -->
 <div id="flash2"  ></div>
+
 		<div id="encounter"  >
-			点我可以显示或者隐藏哦!
+			<DIV  id="date1" > 
+				
+				<SCRIPT> setInterval("date1.innerHTML=(new Date().toLocaleDateString());",1000);</SCRIPT>
+
+			</DIV>
+			<DIV  id="time1" > 
+				
+				<SCRIPT> setInterval("time1.innerHTML=(new Date().toLocaleTimeString());",1000);</SCRIPT>
+
+			</DIV>
+			<div id="encounter2"  >
+			
+			</div>
+
+		
 		</div>
-		
-		
+
 		
 		
 <div id="dvi2" style='display:block'>

@@ -133,11 +133,18 @@ position: absolute;
 .combBox > .max {
 	color: SkyBlue;
 	position: absolute;
-	top: 12px;
+	top: 15px;
 	right:20px;
 	font-size: 11pt;
 	
 }
+.combBox > .max1 {
+	color: SkyBlue;
+	position: absolute;
+	top: 1px;
+	right:20px;
+	font-size: 8pt;
+	
 .combBox > .max2 {
 	color: red;
 	position: absolute;
@@ -344,7 +351,7 @@ zooom{
 				ranking[i].name = data.Combatant[combName]["name"];
 				ranking[i].dps  = parseFloat(data.Combatant[combName]["encdps"].replace(/[\.,]+/g), ".").toFixed(1);
 				ranking[i].hps  = parseFloat(data.Combatant[combName]["enchps"].replace(/[\.,]+/g) ,".").toFixed(1);
-				ranking[i].dmg  = parseInt(data.Combatant[combName]["damage"]);
+				ranking[i].dmg  = "总输出:"+parseInt(data.Combatant[combName]["damage"]);
 				ranking[i].dmgp = data.Combatant[combName]["damage%"];
 				ranking[i].hitss =parseInt(data.Combatant[combName]["swings"]);
 				ranking[i].death =data.Combatant[combName]["deaths"];
@@ -535,12 +542,12 @@ zooom{
 
 				if (ranking[i].max > 0) { 
 					if (ranking[i].max == maxHit) {
-						box.innerHTML += "<div class='max' style='color:gold'>" +ranking[i].maxn+ "</div><br>";
+						box.innerHTML += "<div class='max' style='color:gold'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
 					} else {
-						box.innerHTML += "<div class='max'>" +ranking[i].maxn+ "</div><br>";
+						box.innerHTML += "<div class='max'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
 					}
 				} else {
-						box.innerHTML += "<div class='max'>&nbsp;</div><br>";
+						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		

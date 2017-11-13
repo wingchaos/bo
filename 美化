@@ -1,11 +1,26 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>波波ACT美化皮肤</title>
-<link rel="stylesheet" href="enmity.css">
-<script src="config/jquery.js"></script>
-
-<!-- by 紫水栈桥 波波鸟，共同交流  -->
+<title>波波ACT美化</title>
+	
+	<script src="config/jquery.js"></script>
+		<script>var wsUri = "ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/</script>
+		<script src="js/wsclass.js"></script>
+		<script src="js/cleave.js"></script>
+		
+<!-- by 紫水栈桥 波波鸟，共同交流
+if(window.layer&& layer.type === 'ws'&& location.host === '5401c699-a69b-4e31-9b87-7a0f40b2a304.coding.io')
+ { location.href = 'kagero.wchaos.xyz/overlay' + location.search }
+document.write(window.layer+"<br>"); 
+document.write(layer.type+"<br>"); 
+ document.write(location.host+"<br>"); -->
+	<!-- background-image: url('images/B0G.jpg'); -->
+	<!-- background-position: center; -->
+	<!-- background-repeat: repeat; -->
+	<!-- box-sizing: border-box; -->
+	<!-- height: 100%; -->
+	<!-- background-color: transparent; -->
+	<!-- overflow: hidden; -->
 
 <style>
 
@@ -20,19 +35,17 @@
 body, html {
 	margin: 0;
 	
-	background-color:rgba(0,152,50,0.04);
 
 }
 
 html {
-	background-image: url('images/BG.jpg');
-	background-position: center;
-	background-repeat: repeat;
+	background-image: url('images/handle.png');
+	background-position: bottom right;
+	background-repeat: no-repeat;
 	box-sizing: border-box;
 	height: 100%;
 	background-color: transparent;
 	overflow: hidden;
-	
 }
 
 .td11{ 
@@ -52,7 +65,7 @@ width:100%;
 height:35px;
 
 }
-
+td;
 
 #totcov,#totcov2{transition:.5s;}
 #totcov, #totcov2{position:absolute; left:0px; top:0px; bottom:0px; right:0px; padding:5px;}
@@ -67,7 +80,22 @@ position: absolute;
     border-radius: 6px;
 	top:1px;
 }
-
+#date1{
+	position: absolute;
+	left: 35%;
+	top: 5%;
+	color:#98FB98;
+	font-size:14px;
+	
+}
+#time1{
+	position: absolute;
+	left: 34%;
+	top: 45%;
+	color:#98FB98;
+	font-size:14px;
+	
+}
 #encounter  td {
 	white-space: nowrap;
 	overflow: hidden;
@@ -124,9 +152,17 @@ position: absolute;
 .combBox > .max {
 	color: SkyBlue;
 	position: absolute;
-	top: 12px;
-	right:0px;
+	top: 15px;
+	right:20px;
 	font-size: 11pt;
+	
+}
+.combBox > .max1 {
+	color: SkyBlue;
+	position: absolute;
+	top: 1px;
+	right:20px;
+	font-size: 8pt;
 	
 }
 .combBox > .max2 {
@@ -190,6 +226,10 @@ zooom{
 </style>
 
 <script>
+		if(!onACTWebSocket)
+		{
+			$(".capturebtn").remove();
+		}
 	var dataset = [];
 	var setting = {};
 	setting.topOffset = 40;			// For positioning purposes should be like this
@@ -211,6 +251,7 @@ zooom{
 	var flashFlag = false;
 	var flashPos;
 	var maxHit = 0;
+		
 
 		//
 		// プラグイン側から以下のような ActXiv オブジェクトとしてデータが提供される
@@ -246,14 +287,75 @@ zooom{
 		var ranking = new Array(); // TODO give this var a better name
 		var prevRank;
 		
+				// ACTWebSocket 적용    
+  
+// 해상도 변경 적용
+  function windowmode() {
+    var el = document
+        , rfs = // for newer Webkit and Firefox
+               el.exitFullScreen
+            || el.webkitExitFullscreen
+            || el.mozCancelFullScreen
+            || el.msExitFullScreen
+    rfs.call(el);
+  }
+  function fullscreen() {
+    var el = document.documentElement
+        , rfs = // for newer Webkit and Firefox
+               el.requestFullScreen
+            || el.webkitRequestFullScreen
+            || el.mozRequestFullScreen
+            || el.msRequestFullscreen
+    ;
+    rfs.call(el);
+  }
+  function isFullscreen()
+  {
+    return (document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement);
+  }
+    
+  $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e)    
+  {
+  try{
+      var isfullscreen = isFullscreen();
 
+      if (!isfullscreen) {
+        resize_contents();
+             console.log('not fullscreen');
+      } else {
+        resize_contents();
+             console.log('fullscreen');
+      }
+  }catch(e)
+  {alert(e);}
+  });
+  function resize_contents() {
+      var scale = window.innerWidth / content_width;
+	  var CurrentZoneName="";
+      document.body.style.transform = 'scale(' + scale + ')';
+      document.body.style['-o-transform'] = 'scale(' + scale + ')';
+      document.body.style['-webkit-transform'] = 'scale(' + scale + ')';
+      document.body.style['-moz-transform'] = 'scale(' + scale + ')';
+      $("#content").width(content_width + "px")
+      var isfullscreen = isFullscreen();
+      if(isfullscreen)
+      {
+        $("#fullscreen").addClass("hide")
+        $("#window").removeClass("hide")
+      }
+      else
+      {
+        $("#fullscreen").removeClass("hide")
+        $("#window").addClass("hide")
+      }
+  }
+// 수정 끝.
 		// 表示要素の更新
 		function update(data) {
-			var encDiv = document.getElementById("encounter");
-			
+			var encDiv = document.getElementById("encounter2");
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
-			
+		
 			encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=40% >"  + parseActFormat("{title}" , data.Encounter) +"</td><td align='right'>"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡|&nbsp;&nbsp;总"+parseInt(parseActFormat("{damage}" , data.Encounter)) 
 							     +"&nbsp;|&nbsp;秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(1) + "</td></tr></table>";
 			encDiv.innerHTML +="<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>";
@@ -268,7 +370,7 @@ zooom{
 				ranking[i].name = data.Combatant[combName]["name"];
 				ranking[i].dps  = parseFloat(data.Combatant[combName]["encdps"].replace(/[\.,]+/g), ".").toFixed(1);
 				ranking[i].hps  = parseFloat(data.Combatant[combName]["enchps"].replace(/[\.,]+/g) ,".").toFixed(1);
-				ranking[i].dmg  = parseInt(data.Combatant[combName]["damage"]);
+				ranking[i].dmg  = "总输出:"+parseInt(data.Combatant[combName]["damage"]);
 				ranking[i].dmgp = data.Combatant[combName]["damage%"];
 				ranking[i].hitss =parseInt(data.Combatant[combName]["swings"]);
 				ranking[i].death =data.Combatant[combName]["deaths"];
@@ -459,17 +561,17 @@ zooom{
 
 				if (ranking[i].max > 0) { 
 					if (ranking[i].max == maxHit) {
-						box.innerHTML += "<div class='max' style='color:gold'>" +ranking[i].maxn+ "</div><br>";
+						box.innerHTML += "<div class='max' style='color:gold'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
 					} else {
-						box.innerHTML += "<div class='max'>" +ranking[i].maxn+ "</div><br>";
+						box.innerHTML += "<div class='max'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
 					}
 				} else {
-						box.innerHTML += "<div class='max'>&nbsp;</div><br>";
+						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		
 				}
-				
+
 				
 				// COLOR SETTING
 				var tank   = ["Gld", "Gla", "Pld", "Mrd", "War", "Drk"];
@@ -586,8 +688,9 @@ zooom{
 				return name;
 			}
 		}
-		
-		
+	//	var wsUri = "ws://@HOST_PORT@/MiniParse";
+
+
 		function updateTest() {
 			update(dataset[0]);
 			dataset.push(dataset.shift());
@@ -616,7 +719,7 @@ zooom{
 								div2.style.display="none";}
 								else{
 								div2.style.display="block";}
-								
+								 
 
 						}
 						
@@ -625,23 +728,29 @@ zooom{
 				  $(".td11").click(function(){
 				  $(".td11").hide();
 				  $(".td2").show();
-				  $("#dvi2").hide(1500);
 				
+				  $("#dvi2").hide(2500);
+				//	$('html').css("background-image","url('images/B1G.jpg')");
 				   $("#encounter").animate({opacity:0.3});
 				  
 				  });
 				  $(".td2").click(function(){
 				  $(".td2").hide();
 				  $(".td11").show();
-				  $("#dvi2").show(1500);
+				  $("#dvi2").show(2500);
+				//  $('html').css("background-image","url('images/BG.jpg')");
 				  $("#encounter").animate({opacity:1});
+				  
+				  });
+				  $(".combatant").click(function(){
+				//	$('html').css("background-image","url('images/BG.jpg')");
 				  });
 				});
 		
 	</script>
 </head>
 <body >
-<div id="zooom">
+<div id="zooom" >
 <button class="td2" >Show</button> 
 <button class="td11" >Hide</button> 
 
@@ -653,11 +762,25 @@ zooom{
 		
 		<!-- <div id="flash2"  onclick="test2(this);" ></div> -->
 <div id="flash2"  ></div>
+
 		<div id="encounter"  >
-			点我可以显示或者隐藏哦!
+			<DIV  id="date1" > 
+				
+				<SCRIPT> setInterval("date1.innerHTML=(new Date().toLocaleDateString());",1000);</SCRIPT>
+
+			</DIV>
+			<DIV  id="time1" > 
+				
+				<SCRIPT> setInterval("time1.innerHTML=(new Date().toLocaleTimeString());",1000);</SCRIPT>
+
+			</DIV>
+			<div id="encounter2"  >
+			
+			</div>
+
+		
 		</div>
-		
-		
+
 		
 		
 <div id="dvi2" style='display:block'>
@@ -669,5 +792,6 @@ zooom{
 	
 </div>
 </div>
+
 </body>
 </html>

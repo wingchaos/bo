@@ -4,19 +4,18 @@
 <title>波波ACT美化</title>
 	
 	<script src="config/jquery.js"></script>
-		<script>var wsUri ="ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/</script>
+		<script>var wsUri = "ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/</script>
 		<script src="js/wsclass.js"></script>
 		<script src="js/cleave.js"></script>
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-<!-- by 紫水栈桥 波波鸟，共同交流 -->
-<style type="text/css">
-h2.pos_abs
-{
-position:absolute;
-right:10px;
-top:1440px
-}
-</style>
+		
+<!-- by 紫水栈桥 波波鸟，共同交流
+if(window.layer&& layer.type === 'ws'&& location.host === '5401c699-a69b-4e31-9b87-7a0f40b2a304.coding.io')
+ { location.href = 'kagero.wchaos.xyz/overlay' + location.search }
+document.write(window.layer+"<br>"); 
+document.write(layer.type+"<br>"); 
+ document.write(location.host+"<br>"); -->
+
+
 <style>
 
 * {
@@ -145,6 +144,7 @@ position: absolute;
 	right:20px;
 	font-size: 8pt;
 	
+}
 .combBox > .max2 {
 	color: red;
 	position: absolute;
@@ -540,7 +540,18 @@ zooom{
 				// fancy printing of max hit
 				
 
-
+				if (ranking[i].max > 0) { 
+					if (ranking[i].max == maxHit) {
+						box.innerHTML += "<div class='max' style='color:gold'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
+					} else {
+						box.innerHTML += "<div class='max'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
+					}
+				} else {
+						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
+				}
+				if(parseInt(ranking[i].death)>0){
+					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		
+				}
 				
 				
 				// COLOR SETTING
@@ -689,7 +700,7 @@ zooom{
 								div2.style.display="none";}
 								else{
 								div2.style.display="block";}
-								
+								 
 
 						}
 						
@@ -698,17 +709,19 @@ zooom{
 				  $(".td11").click(function(){
 				  $(".td11").hide();
 				  $(".td2").show();
-				  $("#dvi2").hide(1500);
-				$('html').css("background-image","url('隐藏背景')");
+				
+				  $("#dvi2").hide(2500);
+					$('html').css("background-image","url('images/B1G.jpg')");
 				   $("#encounter").animate({opacity:0.3});
 				  
 				  });
 				  $(".td2").click(function(){
 				  $(".td2").hide();
 				  $(".td11").show();
-				  $("#dvi2").show(1500);
+				  $("#dvi2").show(2500);
 				  $('html').css("background-image","url('images/BG.jpg')");
 				  $("#encounter").animate({opacity:1});
+				  
 				  });
 				});
 		
@@ -740,13 +753,9 @@ zooom{
 			<!-- ここに各キャラの情報が入る -->
 		</div>
 	</div>
+	
+</div>
+</div>
 
-	
-	
-</div>
-</div>
-<h2 class="pos_abs">
-    <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
-    </h2>
 </body>
 </html>

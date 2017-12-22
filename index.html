@@ -136,13 +136,13 @@ td;
 
 
 .combBox > .playerName {
-	color:	#EEEE00;
+	color:	yellow;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	position: relative;
 	top: 3px;
-	font-size: 12pt;
+	font-size: 10pt;
 }
 .combBox > .dmg {
 	color:	#98FB98;
@@ -155,18 +155,26 @@ td;
 .combBox > .max {
 	color: SkyBlue;
 	position: absolute;
-	top: 15px;
-	right:20px;
-	font-size: 11pt;
+	top: 25px;
+	right:10px;
+	font-size: 13pt;
 	
+}
+.combBox > .max0 {
+	color: SkyBlue;
+	position: absolute;
+	top: 1px;
+	right:10px;
+	font-size: 8pt;
+
 }
 .combBox > .max1 {
 	color: SkyBlue;
 	position: absolute;
-	top: 1px;
-	right:20px;
-	font-size: 8pt;
-	
+	top: 12px;
+	right:10px;
+	font-size: 9pt;
+
 }
 .combBox > .max2 {
 	color: red;
@@ -174,6 +182,30 @@ td;
 	top: 10px;
 	left:10px;
 	font-size: 13pt;
+	
+}
+.combBox > .max3 {
+	color:#98FB98;
+	position: absolute;
+	top: 28px;
+	left:155px;
+	font-size: 10pt;
+	
+}
+.combBox > .max4 {
+	color: #98FB98;
+	position: absolute;
+	top: 13px;
+	left:155px;
+	font-size: 10pt;
+	
+}
+.combBox > .max5 {
+	color: #98FB98;
+	position: absolute;
+	top: 0px;
+	left:155px;
+	font-size: 10pt;
 	
 }
 .combBox > .rank {
@@ -371,15 +403,16 @@ zooom{
 				
 				ranking[i] = {};
 				ranking[i].name = data.Combatant[combName]["name"];
-				ranking[i].dps  = parseFloat(data.Combatant[combName]["encdps"].replace(/[\.,]+/g), ".").toFixed(1);
+				ranking[i].dps  = parseInt(data.Combatant[combName]["encdps"].replace(/[\.,]+/g), ".").toFixed(0);
 				ranking[i].hps  = parseFloat(data.Combatant[combName]["enchps"].replace(/[\.,]+/g) ,".").toFixed(1);
-				ranking[i].dmg  = "总输出:"+parseInt(data.Combatant[combName]["damage"]);
+				ranking[i].dmg  = parseInt(data.Combatant[combName]["damage"]);
 				ranking[i].dmgp = data.Combatant[combName]["damage%"];
 				ranking[i].hitss =parseInt(data.Combatant[combName]["swings"]);
 				ranking[i].death =data.Combatant[combName]["deaths"];
 				ranking[i].dhc =data.Combatant[combName]["DirectHitCount"];
-				ranking[i].dhit =","+parseInt(data.Combatant[combName]["DirectHitCount"])+"次DH:"+data.Combatant[combName]["DirectHitPct"]+","+data.Combatant[combName]["CritDirectHitCount"]+"次CDH";
-				ranking[i].crtp = parseInt(data.Combatant[combName]["crithits"])+"次暴:"+ (parseInt(data.Combatant[combName]["crithits"]) / parseInt(data.Combatant[combName]["swings"]) * 100).toFixed(1)+"%";
+				ranking[i].dhit =parseInt(data.Combatant[combName]["DirectHitCount"])+"次直击:"+parseFloat(data.Combatant[combName]["DirectHitPct"]).toFixed(1)+"%";//+","+data.Combatant[combName]["CritDirectHitCount"]+"次直暴";
+				ranking[i].dchp = data.Combatant[combName]["CritDirectHitCount"]+"次直暴:"+data.Combatant[combName]["CritDirectHitPct"];
+				ranking[i].crtp = parseInt(data.Combatant[combName]["crithits"])+"次暴击:"+ (parseInt(data.Combatant[combName]["crithits"]) / parseInt(data.Combatant[combName]["swings"]) * 100).toFixed(1)+"%";
 				ranking[i].max  = parseInt(data.Combatant[combName]["MAXHIT"].replace(/[\.,]+/g ,""));
 				ranking[i].maxn= data.Combatant[combName]["maxhit"];
 				//(data.Combatant[combName]["MAXHIT"].substring(0,1));
@@ -535,19 +568,20 @@ zooom{
 					 box.innerHTML =" <img src='images/glow/"+ranking[i].job+".png' >";
 					if(ranking[i].dhc<=0){
 						ranking[i].dhit="";
+						ranking[i].dchp="";
 					}
 					if(ranking[i].miss<=0){
-						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+"("+ranking[i].dmgp+ranking[i].dhit+")"  + "</div><br>";
+						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+ "</div><br>";
 					}
 					else{
-						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+"("+ranking[i].dmgp+ranking[i].dhit+","+ ranking[i].miss+"误)"+ "</div><br>";
+						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+"-"+ranking[i].dmgp+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+","+ ranking[i].miss+"误"+ "</div><br>";
 					}
 						
 				
 				// writing the deeps or damage
 				if (ranking[i].dps > 0) {
 					
-					box.innerHTML += "<div class='dmg'>"+"秒:" + ranking[i].dps.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "") + "&nbsp;[&nbsp;" + ranking[i].hitss+"次攻,&nbsp;"+ranking[i].crtp+ "&nbsp;]</div><br>";
+					box.innerHTML += "<div class='dmg'>"+"["  + ranking[i].hitss+"次攻击,&nbsp;"+ranking[i].dmgp+ "]" +"&nbsp;" +"</div><br>";
 					
 					
 				} else {
@@ -557,24 +591,34 @@ zooom{
 						box.innerHTML += "<div class='dmg'>&nbsp;</div><br>"
 					}
 				}
+				// 百分比
+			
+				box.innerHTML += "<div class='max3'>"+ranking[i].crtp+"</div><br>";
+				box.innerHTML += "<div class='max4'>"+ranking[i].dhit+"</div><br>";
+				box.innerHTML += "<div class='max5'>"+ranking[i].dchp+"</div><br>";
 				
-				
+			//	+ranking[i].dmgp+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")
 				// fancy printing of max hit
 				
 
 				if (ranking[i].max > 0) { 
 					if (ranking[i].max == maxHit) {
-						box.innerHTML += "<div class='max' style='color:gold'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
+						box.innerHTML +="<div class='max1' style='color:gold'>"+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
+						box.innerHTML += "<div class='max' style='color:gold'>"+"秒伤-" +ranking[i].dps+ "</div><br>"+"<div class='max0' style='color:gold'>" +"&nbsp;总-"+ranking[i].dmg+ "</div><br>";
 					} else {
-						box.innerHTML += "<div class='max'>" +ranking[i].maxn+ "</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max1'>" +ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
+						box.innerHTML += "<div class='max'>" +"秒伤-" +ranking[i].dps+ "</div><br>"+"<div class='max0' >" +"&nbsp;总:"+ranking[i].dmg+ "</div><br>";
 					}
 				} else {
-						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmg+ "</div><br>";
+						
+						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"&nbsp;总:"+ranking[i].dmg+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		
 				}
-
+				
+				
+				
 				
 				// COLOR SETTING
 				var tank   = ["Gld", "Gla", "Pld", "Mrd", "War", "Drk"];

@@ -72,7 +72,7 @@ td;
 #totcov, #totcov2{position:absolute; left:0px; top:0px; bottom:0px; right:0px; padding:5px;}
 #encounter {
 
-    background: rgba(124,252,0,0.3);
+    background: rgba(0,0,0,0.5);
 	text-shadow: unset;
 
     padding: 1px;
@@ -86,7 +86,8 @@ td;
 #time1{
 	left: 35%;
 	top: 14px;
-	color:#98FB98;
+	//color:#98FB98;
+	color:#C0D6D3;
 	font-size:14px;
 	word-break:keep-all;  
 	
@@ -94,7 +95,7 @@ td;
 #date1{
 	left: 35%;
 	top: 14px;
-	color:#98FB98;
+	color:#C0D6D3;
 	font-size:14px;
 	word-break:keep-all;  
 	
@@ -103,15 +104,15 @@ td;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	//color:#CFC4AF;
-	color:SkyBlue;
+	color:#CFC4AF;
+	//color:#FF5722;
 	//font-size: 19pt;
 }
 #encounter  td33 {
-	color: gold;
+	color: #FF5722;
 	position: absolute;
-	top: -8px;
-	right:50px;;
+	top: -5px;
+	right:10px;;
 
 	font-size: 18pt;
 }
@@ -136,45 +137,13 @@ td;
 
 
 .combBox > .playerName {
-	color:	yellow;
+	color:#E6E1B9 ;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	position: relative;
 	top: 3px;
-	font-size: 10pt;
-}
-.combBox > .dmg {
-	color:	#98FB98;
-	position: relative;
-	top: -10px;
-	vertical-align: bottom;
-	font-size: 10pt;
-}
-
-.combBox > .max {
-	color: SkyBlue;
-	position: absolute;
-	top: 25px;
-	right:10px;
-	font-size: 13pt;
-	
-}
-.combBox > .max0 {
-	color: SkyBlue;
-	position: absolute;
-	top: 1px;
-	right:10px;
-	font-size: 8pt;
-
-}
-.combBox > .max1 {
-	color: SkyBlue;
-	position: absolute;
-	top: 12px;
-	right:10px;
-	font-size: 9pt;
-
+	font-size: 11pt;
 }
 .combBox > .max2 {
 	color: red;
@@ -184,27 +153,64 @@ td;
 	font-size: 13pt;
 	
 }
-.combBox > .max3 {
-	color:#98FB98;
+.combBox > .dmg {
+	color:	#E6E1B9;
+	position: relative;
+	top: -10px;
+	vertical-align: bottom;
+	font-size: 12pt;
+}
+
+ .combBox >.max {
+	color:#C0D6D3 ;
 	position: absolute;
 	top: 28px;
-	left:155px;
+	left:140px;
 	font-size: 10pt;
 	
 }
-.combBox > .max4 {
-	color: #98FB98;
-	position: absolute;
-	top: 13px;
-	left:155px;
-	font-size: 10pt;
-	
-}
-.combBox > .max5 {
-	color: #98FB98;
+.combBox >.max0 {
+	color:#C0D6D3 ;
 	position: absolute;
 	top: 0px;
-	left:155px;
+	left:140px;
+	font-size: 8pt;
+
+}
+ .combBox >.max1 {
+	color:#E2E7C7 ;
+	position: absolute;
+	top: 13px;
+	left:140px;
+	font-size: 9pt;
+
+}
+
+ .combBox >.max3 {
+	//color:#C0D6D3 ;
+	color:#C0D6D3 ;
+	
+	position: absolute;
+	top: 28px;
+	left:240px;
+	font-size: 10pt;
+	
+}
+ .combBox >.max4 {
+ color:#E2E7C7 ;
+	
+	position: absolute;
+	top: 13px;
+	left:240px;
+	font-size: 10pt;
+	
+}
+ .combBox >.max5 {
+ color:#C0D6D3 ;
+	
+	position: absolute;
+	top: 0px;
+	left:240px;
 	font-size: 10pt;
 	
 }
@@ -214,7 +220,7 @@ td;
 	font-size: 24pt;
 	position: relative;
 	left: -10px;
-	top: -80px;
+	top: -155px;
 }
 
 .combBox  img { 
@@ -391,8 +397,8 @@ zooom{
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
 		
-			encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=40% >"  + parseActFormat("{title}" , data.Encounter) +"</td><td align='right'>"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡|&nbsp;&nbsp;总"+parseInt(parseActFormat("{damage}" , data.Encounter)) 
-							     +"&nbsp;|&nbsp;秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(1) + "</td></tr></table>";
+			encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=30% >"  + parseActFormat("{title}" , data.Encounter) +"</td><td align='right'>"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡|&nbsp;&nbsp;总"+parseInt(parseActFormat("{damage}" , data.Encounter)) 
+							     +"&nbsp;|&nbsp;秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(0) + "</td></tr></table>";
 			encDiv.innerHTML +="<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>";
 			// RANKING, THIS VAR STORES DATA TO BE DISPLAYED
 			ranking = new Array(Object.keys(data.Combatant).length);
@@ -574,15 +580,15 @@ zooom{
 						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+ "</div><br>";
 					}
 					else{
-						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+"-"+ranking[i].dmgp+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+","+ ranking[i].miss+"误"+ "</div><br>";
+						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+"-"+ ranking[i].miss+"误"+ "</div><br>";
 					}
 						
 				
 				// writing the deeps or damage
 				if (ranking[i].dps > 0) {
 					
-					box.innerHTML += "<div class='dmg'>"+"["  + ranking[i].hitss+"次攻击,&nbsp;"+ranking[i].dmgp+ "]" +"&nbsp;" +"</div><br>";
-					
+					//box.innerHTML += "<div class='dmg'>"+"["  + ranking[i].hitss+"次攻"+ranking[i].dmgp+ "]" +"&nbsp;" +"</div><br>";
+					box.innerHTML += "<div class='dmg'>"  +"秒伤-" +ranking[i].dps+"&nbsp;" +"</div><br>";
 					
 				} else {
 					if(ranking[i].dmg > 0) {
@@ -604,14 +610,14 @@ zooom{
 				if (ranking[i].max > 0) { 
 					if (ranking[i].max == maxHit) {
 						box.innerHTML +="<div class='max1' style='color:gold'>"+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
-						box.innerHTML += "<div class='max' style='color:gold'>"+"秒伤-" +ranking[i].dps+ "</div><br>"+"<div class='max0' style='color:gold'>" +"&nbsp;总-"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max' style='color:gold'>"+ ranking[i].hitss+"次攻击"+ranking[i].dmgp+ "</div><br>"+"<div class='max0' style='color:gold'>" +"总-"+ranking[i].dmg+ "</div><br>";
 					} else {
 						box.innerHTML += "<div class='max1'>" +ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
-						box.innerHTML += "<div class='max'>" +"秒伤-" +ranking[i].dps+ "</div><br>"+"<div class='max0' >" +"&nbsp;总:"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max'>" + ranking[i].hitss+"次攻击"+ranking[i].dmgp+ "</div><br>"+"<div class='max0' >" +"总:"+ranking[i].dmg+ "</div><br>";
 					}
 				} else {
 						
-						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"&nbsp;总:"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"总:"+ranking[i].dmg+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		

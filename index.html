@@ -116,6 +116,14 @@ td;
 
 	font-size: 18pt;
 }
+#encounter  td44 {
+	color: #FF5722;
+	position: absolute;
+	top: 20px;
+	right:0px;;
+
+	font-size: 9pt;
+}
 
 #encounter table {
 	border: none;
@@ -165,7 +173,7 @@ td;
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 28px;
-	left:140px;
+	left:124px;
 	font-size: 10pt;
 	
 }
@@ -173,7 +181,7 @@ td;
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 0px;
-	left:140px;
+	left:124px;
 	font-size: 8pt;
 
 }
@@ -181,7 +189,7 @@ td;
 	color:#E2E7C7 ;
 	position: absolute;
 	top: 13px;
-	left:140px;
+	left:124px;
 	font-size: 9pt;
 
 }
@@ -396,9 +404,9 @@ zooom{
 			var encDiv = document.getElementById("encounter2");
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
-		
-			encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=30% >"  + parseActFormat("{title}" , data.Encounter) +"</td><td align='right'>"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡|&nbsp;&nbsp;总"+parseInt(parseActFormat("{damage}" , data.Encounter)) 
-							     +"&nbsp;|&nbsp;秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(0) + "</td></tr></table>";
+			encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + parseActFormat("{title}" , data.Encounter) +"</td></tr></table>";
+			encDiv.innerHTML +="<td44 align='left'>" + "&nbsp;【"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡-秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(0)+
+			"-总"+parseInt(parseActFormat("{damage}" , data.Encounter)) + "】</td></tr></table>"+"</td><td align='left'>";+"</td44></tr></table>";
 			encDiv.innerHTML +="<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>";
 			// RANKING, THIS VAR STORES DATA TO BE DISPLAYED
 			ranking = new Array(Object.keys(data.Combatant).length);

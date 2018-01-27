@@ -47,7 +47,14 @@ html {
 	background-color: transparent;
 	overflow: hidden;
 }
-
+.td111{ 
+position: absolute;
+opacity: 0;
+right:0px;
+top:0px;
+width:35%;
+height:35px;
+}
 .td11{ 
 position: absolute;
 opacity: 0;
@@ -173,7 +180,7 @@ td;
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 28px;
-	left:124px;
+	left:129px;
 	font-size: 10pt;
 	
 }
@@ -181,7 +188,7 @@ td;
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 0px;
-	left:124px;
+	left:129px;
 	font-size: 8pt;
 
 }
@@ -189,7 +196,7 @@ td;
 	color:#E2E7C7 ;
 	position: absolute;
 	top: 13px;
-	left:124px;
+	left:129px;
 	font-size: 9pt;
 
 }
@@ -404,7 +411,12 @@ zooom{
 			var encDiv = document.getElementById("encounter2");
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
-			encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + parseActFormat("{title}" , data.Encounter) +"</td></tr></table>";
+			if(parseActFormat("{title}" , data.Encounter)=="Encounter"){
+				encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + "战斗ing（点击计时器停止）" +"</td></tr></table>";
+			}
+			else 
+				encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + parseActFormat("{title}" , data.Encounter) +"</td></tr></table>";
+				
 			encDiv.innerHTML +="<td44 align='left'>" + "&nbsp;【"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡-秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(0)+
 			"-总"+parseInt(parseActFormat("{damage}" , data.Encounter)) + "】</td></tr></table>"+"</td><td align='left'>";+"</td44></tr></table>";
 			encDiv.innerHTML +="<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>";
@@ -496,7 +508,9 @@ zooom{
 				}
 				
 				if(ranking[i].name == "YOU") {
+					ranking[i].name="帅气的我";
 					ranking[i].alpha = (ranking[i].prev == -1)?0:1;
+					
 				}
 				if (ranking[i].prev == -1 || ranking[i].prev > setting.maxDisplay) { 		// for people joining the ranks (fade in)
 					ranking[i].y = setting.topOffset + setting.boxHeight * (i + 1);					
@@ -513,6 +527,7 @@ zooom{
 					flashPos = Math.min(setting.maxDisplay - 1, ranking[i].prev);
 					t = 0;
 				}
+				
 			}
 			
 			//console.log(data);
@@ -786,6 +801,10 @@ zooom{
 						
 				$(document).ready(function(){
 				$('#container').css('pointer-events', 'none'); 
+				 $(".td111").click(function(){
+				 //点击停止encounter
+					OverlayPluginApi.endEncounter();
+				 });
 				  $(".td11").click(function(){
 				  $(".td11").hide();
 				  $(".td2").show();
@@ -793,6 +812,7 @@ zooom{
 				  $("#dvi2").hide(2500);
 				//	$('html').css("background-image","url('images/B1G.jpg')");
 				   $("#encounter").animate({opacity:0.3});
+				    
 				  
 				  });
 				  $(".td2").click(function(){
@@ -814,7 +834,7 @@ zooom{
 <div id="zooom" >
 <button class="td2" >Show</button> 
 <button class="td11" >Hide</button> 
-
+<button class="td111" >停止统计</button> 
 <!-- <button class="td11" id="btn1">Show</button>  -->
 <div id="container">
 	

@@ -497,6 +497,11 @@ zooom{
 			
 			// GET PREVIOUS RANKING
 			for (i = 0; i < ranking.length; i++) {
+			    	if(ranking[i].name == "YOU") {
+					ranking[i].name="帅气的我";
+			    	    
+			    	}
+					
 				ranking[i].prev = -1; // this is "no previous rank"
 				
 				// if has previous rank, calculate initial position
@@ -507,8 +512,8 @@ zooom{
 					}
 				}
 				
-				if(ranking[i].name == "YOU") {
-					ranking[i].name="帅气的我";
+				if(ranking[i].name == "帅气的我") {
+					
 					ranking[i].alpha = (ranking[i].prev == -1)?0:1;
 					
 				}
@@ -522,7 +527,7 @@ zooom{
 				
 				
 				// If get better deeps, then flashy effect (only when getting to top ranks tho)
-				if (ranking[i].name == "YOU" && i < ranking[i].prev && ranking[i].prev < setting.maxDisplay) {
+				if (ranking[i].name == "帅气的我" && i < ranking[i].prev && ranking[i].prev < setting.maxDisplay) {
 					flashFlag = true;
 					flashPos = Math.min(setting.maxDisplay - 1, ranking[i].prev);
 					t = 0;

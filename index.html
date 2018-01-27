@@ -291,7 +291,7 @@ zooom{
 	setting.topOffset = 40;			// For positioning purposes should be like this
 	setting.boxHeight = 50; 		// This gives that little overlap to match the original
 	var panduan=-1;
-	
+	var myRoleName="帅气的我";
 	//==============================================
 	// STUFF THAT CAN BE CONFIGURED BY THE USER GOES HERE
 	
@@ -412,7 +412,7 @@ zooom{
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
 			if(parseActFormat("{title}" , data.Encounter)=="Encounter"){
-				encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + "战斗ing。。。" +"</td></tr></table>";
+				encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + "战斗ing（点击计时器停止）" +"</td></tr></table>";
 			}
 			else 
 				encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + parseActFormat("{title}" , data.Encounter) +"</td></tr></table>";
@@ -497,13 +497,10 @@ zooom{
 			
 			// GET PREVIOUS RANKING
 			for (i = 0; i < ranking.length; i++) {
-			    	if(ranking[i].name == "YOU") {
-					ranking[i].name="帅气的我";
-			    	    
-			    	}
-					
 				ranking[i].prev = -1; // this is "no previous rank"
-				
+				if(ranking[i].name == "YOU") {
+					ranking[i].name=myRoleName;
+					}
 				// if has previous rank, calculate initial position
 				for (var j = 0; j < prevRank.length; j++) {
 					if (prevRank[j].name === ranking[i].name) {
@@ -511,9 +508,10 @@ zooom{
 						continue;
 					}
 				}
-				
-				if(ranking[i].name == "帅气的我") {
+
 					
+				if(ranking[i].name == myRoleName) {
+				//	ranking[i].name="帅气的我";
 					ranking[i].alpha = (ranking[i].prev == -1)?0:1;
 					
 				}
@@ -527,7 +525,7 @@ zooom{
 				
 				
 				// If get better deeps, then flashy effect (only when getting to top ranks tho)
-				if (ranking[i].name == "帅气的我" && i < ranking[i].prev && ranking[i].prev < setting.maxDisplay) {
+				if (ranking[i].name == myRoleName && i < ranking[i].prev && ranking[i].prev < setting.maxDisplay) {
 					flashFlag = true;
 					flashPos = Math.min(setting.maxDisplay - 1, ranking[i].prev);
 					t = 0;

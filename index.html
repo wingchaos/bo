@@ -160,7 +160,7 @@ td;
 	top: 3px;
 	font-size: 11pt;
 }
-.combBox > .max2 {
+.combBox > .deathcount {
 	color: red;
 	position: absolute;
 	top: 10px;
@@ -207,8 +207,9 @@ td;
 	
 	position: absolute;
 	top: 28px;
-	left:240px;
+	right:10px;
 	font-size: 10pt;
+
 	
 }
  .combBox >.max4 {
@@ -216,7 +217,7 @@ td;
 	
 	position: absolute;
 	top: 13px;
-	left:240px;
+	right:10px;
 	font-size: 10pt;
 	
 }
@@ -225,7 +226,7 @@ td;
 	
 	position: absolute;
 	top: 0px;
-	left:240px;
+	right:10px;
 	font-size: 10pt;
 	
 }
@@ -437,7 +438,7 @@ zooom{
 				ranking[i].death =data.Combatant[combName]["deaths"];
 				ranking[i].dhc =data.Combatant[combName]["DirectHitCount"];
 				ranking[i].dhit =parseInt(data.Combatant[combName]["DirectHitCount"])+"次直击:"+parseFloat(data.Combatant[combName]["DirectHitPct"]).toFixed(1)+"%";//+","+data.Combatant[combName]["CritDirectHitCount"]+"次直暴";
-				ranking[i].dchp = data.Combatant[combName]["CritDirectHitCount"]+"次直暴:"+data.Combatant[combName]["CritDirectHitPct"];
+				ranking[i].dchp = data.Combatant[combName]["CritDirectHitCount"]+"次直暴:"+(((data.Combatant[combName]["CritDirectHitCount"])/(parseInt(data.Combatant[combName]["swings"])))*100).toFixed(1)+"%";//             +data.Combatant[combName]["CritDirectHitPct"]*100;
 				ranking[i].crtp = parseInt(data.Combatant[combName]["crithits"])+"次暴击:"+ (parseInt(data.Combatant[combName]["crithits"]) / parseInt(data.Combatant[combName]["swings"]) * 100).toFixed(1)+"%";
 				ranking[i].max  = parseInt(data.Combatant[combName]["MAXHIT"].replace(/[\.,]+/g ,""));
 				ranking[i].maxn= data.Combatant[combName]["maxhit"];
@@ -629,9 +630,9 @@ zooom{
 				}
 				// 百分比
 			
-				box.innerHTML += "<div class='max3'>"+ranking[i].crtp+"</div><br>";
-				box.innerHTML += "<div class='max4'>"+ranking[i].dhit+"</div><br>";
-				box.innerHTML += "<div class='max5'>"+ranking[i].dchp+"</div><br>";
+				box.innerHTML += "<div class='max3' align='left'>"+ranking[i].crtp+"</div><br>";
+				box.innerHTML += "<div class='max4' align='left'>"+ranking[i].dhit+"</div><br>";
+				box.innerHTML += "<div class='max5' align='left'>"+ranking[i].dchp+"</div><br>";
 				
 			//	+ranking[i].dmgp+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")
 				// fancy printing of max hit
@@ -650,7 +651,7 @@ zooom{
 						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"总:"+ranking[i].dmg+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
-					box.innerHTML +=	"<div class='max2'>" + ranking[i].death +"亡&nbsp;";		
+					box.innerHTML +=	"<div class='deathcount'>" + ranking[i].death +"亡&nbsp;";		
 				}
 				
 				

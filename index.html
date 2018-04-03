@@ -180,7 +180,7 @@ td;
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 28px;
-	left:129px;
+	left:135px;
 	font-size: 10pt;
 	
 }
@@ -188,7 +188,7 @@ td;
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 0px;
-	left:129px;
+	left:135px;
 	font-size: 8pt;
 
 }
@@ -196,7 +196,7 @@ td;
 	color:#E2E7C7 ;
 	position: absolute;
 	top: 13px;
-	left:129px;
+	left:135px;
 	font-size: 9pt;
 
 }
@@ -410,6 +410,7 @@ zooom{
 		// 表示要素の更新
 		function update(data) {
 			var encDiv = document.getElementById("encounter2");
+			var deathCounts=0；
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
 			if(parseActFormat("{title}" , data.Encounter)=="Encounter"){
@@ -651,9 +652,13 @@ zooom{
 						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"总:"+ranking[i].dmg+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
-					box.innerHTML +=	"<div class='deathcount'>" + ranking[i].death +"亡&nbsp;";		
+					box.innerHTML +=	"<div class='deathcount'>" + ranking[i].death +"亡&nbsp;";	
+					deathCounts=deathCounts+1；
 				}
 				
+				if(deathCounts>=8)(
+					OverlayPluginApi.endEncounter();
+				)
 				
 				
 				

@@ -288,6 +288,7 @@ zooom{
 			$(".capturebtn").remove();
 		}
 	var dataset = [];
+	
 	var setting = {};
 	setting.topOffset = 40;			// For positioning purposes should be like this
 	setting.boxHeight = 50; 		// This gives that little overlap to match the original
@@ -410,7 +411,7 @@ zooom{
 		// 表示要素の更新
 		function update(data) {
 			var encDiv = document.getElementById("encounter2");
-			var deathCounts=0；
+			var deathCounts=0;
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
 			if(parseActFormat("{title}" , data.Encounter)=="Encounter"){
@@ -444,6 +445,7 @@ zooom{
 				ranking[i].max  = parseInt(data.Combatant[combName]["MAXHIT"].replace(/[\.,]+/g ,""));
 				ranking[i].maxn= data.Combatant[combName]["maxhit"];
 				//(data.Combatant[combName]["MAXHIT"].substring(0,1));
+				ranking[i].deathcountss=0;
 				
 				ranking[i].miss = parseInt(data.Combatant[combName]["misses"]);
 				
@@ -537,6 +539,13 @@ zooom{
 					t = 0;
 				}
 				
+				if(ranking[i].deathcountss==1){
+					deathCounts=deathCounts+1;
+				}
+				
+				if(deathCounts>=8){
+					OverlayPluginApi.endEncounter();
+				}
 			}
 			
 			//console.log(data);
@@ -653,12 +662,11 @@ zooom{
 				}
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='deathcount'>" + ranking[i].death +"亡&nbsp;";	
-					deathCounts=deathCounts+1；
+					ranking[i].deathcountss=1;
 				}
 				
-				if(deathCounts>=8){
-					OverlayPluginApi.endEncounter();
-				}
+			//	if(deathCounts>=1){
+			//		OverlayPluginApi.endEncounter();}
 				
 				
 				

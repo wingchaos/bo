@@ -158,7 +158,7 @@ td;
 	text-overflow: ellipsis;
 	position: relative;
 	top: 3px;
-	font-size: 11pt;
+	font-size: 10pt;
 }
 .combBox > .deathcount {
 	color: red;
@@ -169,18 +169,19 @@ td;
 	
 }
 .combBox > .dmg {
-	color:	#E6E1B9;
+	//color:	#E6E1B9;
+	color:#FF5722;
 	position: relative;
-	top: -10px;
+	top: -14px;
 	vertical-align: bottom;
-	font-size: 12pt;
+	font-size: 15pt;
 }
 
  .combBox >.max {
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 28px;
-	left:135px;
+	left:150px;
 	font-size: 10pt;
 	
 }
@@ -188,7 +189,7 @@ td;
 	color:#C0D6D3 ;
 	position: absolute;
 	top: 0px;
-	left:135px;
+	left:150px;
 	font-size: 8pt;
 
 }
@@ -196,7 +197,7 @@ td;
 	color:#E2E7C7 ;
 	position: absolute;
 	top: 13px;
-	left:135px;
+	left:150px;
 	font-size: 9pt;
 
 }
@@ -505,9 +506,9 @@ zooom{
 				if(ranking[i].name == "YOU") {
 					ranking[i].name=myRoleName;
 					}
-				if((ranking[i].name).length>=6)
+				if((ranking[i].name).length>=9)
 				{
-				   ranking[i].name=(ranking[i].name).substring(0,6);
+				   ranking[i].name=(ranking[i].name).substring(0,9);
 				}
 				// if has previous rank, calculate initial position
 				for (var j = 0; j < prevRank.length; j++) {
@@ -629,7 +630,7 @@ zooom{
 				if (ranking[i].dps > 0) {
 					
 					//box.innerHTML += "<div class='dmg'>"+"["  + ranking[i].hitss+"次攻"+ranking[i].dmgp+ "]" +"&nbsp;" +"</div><br>";
-					box.innerHTML += "<div class='dmg'>"  +"秒伤-" +ranking[i].dps+"&nbsp;" +"</div><br>";
+					box.innerHTML += "<div class='dmg'>"  +"秒" +ranking[i].dps+"&nbsp;" +"</div><br>";
 					
 				} else {
 					if(ranking[i].dmg > 0) {

@@ -1,6 +1,12 @@
 <html>
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8">
+<meta name="author" content="monicaqin">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <title>波波ACT美化</title>
 	
 	<script src="config/jquery.js"></script>
@@ -46,6 +52,34 @@ html {
 	height: 100%;
 	background-color: transparent;
 	overflow: hidden;
+}
+
+.demo{
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:justify;
+    -webkit-justify-content:space-between;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+}
+
+.demo a{
+     width:20%;
+     display:block;
+     height:44px;
+     line-height:44px;
+     text-align:center;
+     border:1px solid #428cc8;
+     color:#666;
+     font-size:16px;
+     margin-bottom:5px;
+     border-radius:3px;
+     background-color:#fefefe;
+     background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#fefefe),color-stop(1,#eee));
+     color:#666;
+     text-decoration:none;
 }
 .td111{ 
 position: absolute;
@@ -147,107 +181,127 @@ td;
 	display: block;
     padding: 1px;
     border-radius: 5px;
+	
 }
 
 
 
-.combBox > .playerName {
-	color:#E6E1B9 ;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	position: relative;
-	top: 3px;
-	font-size: 10pt;
-}
+
 .combBox > .deathcount {
-	color: red;
-	position: absolute;
-	top: 10px;
-	left:10px;
-	font-size: 13pt;
-	
-}
-.combBox > .dmg {
-	//color:	#E6E1B9;
-	color:#FF5722;
-	position: relative;
-	top: -14px;
-	vertical-align: bottom;
-	font-size: 15pt;
-}
-
- .combBox >.max {
-	color:#C0D6D3 ;
-	position: absolute;
-	top: 28px;
-	left:150px;
-	font-size: 10pt;
-	
-}
-.combBox >.max0 {
-	color:#C0D6D3 ;
+	color: yellow;
 	position: absolute;
 	top: 0px;
-	left:150px;
-	font-size: 8pt;
-
+	left:0px;
+	font-size: 13pt;
+	opacity: 0.85;
 }
- .combBox >.max1 {
-	color:#E2E7C7 ;
+.combBox > .misscount {
+	color: yellow;
 	position: absolute;
-	top: 13px;
-	left:150px;
-	font-size: 9pt;
-
+	top: 63%;
+	left:1px;
+	font-size: 10pt;
 }
 
  .combBox >.max3 {
-	//color:#C0D6D3 ;
 	color:#C0D6D3 ;
-	
 	position: absolute;
 	top: 28px;
-	right:10px;
-	font-size: 10pt;
-
-	
-}
- .combBox >.max4 {
- color:#E2E7C7 ;
-	
-	position: absolute;
-	top: 13px;
-	right:10px;
+	left:35.5%;
 	font-size: 10pt;
 	
 }
- .combBox >.max5 {
- color:#C0D6D3 ;
-	
+.combBox >.max5 {
+	color:#C0D6D3 ;
 	position: absolute;
 	top: 0px;
-	right:10px;
+	left:35.5%;
+	font-size: 10pt;
+
+}
+ .combBox >.max4 {
+	color:#E2E7C7 ;
+	position: absolute;
+	top: 13px;
+	left:35.5%;
+	font-size: 10pt;
+
+}
+
+
+ .combBox >.max1 {
+ color:#E2E7C7 ;
+	/*右边上面*/
+	position: absolute;
+	top: 13px;
+	left:70%;
 	font-size: 10pt;
 	
 }
+ .combBox >.max {
+ color:#C0D6D3 ;
+	/*右边中间*/
+	position: absolute;
+	top: 0px;
+	left:70%;
+	font-size: 9pt;
+	
+}
+
+ .combBox >.max0 {
+	//color:#C0D6D3 ;
+	color:#C0D6D3 ;
+	/*右边下面*/
+	position: absolute;
+	top: 28px;
+	left:70%;
+	font-size: 9pt;
+}
+
+
+
+
 .combBox > .rank {
 	text-align: right;
 	opacity: 0.3;
 	font-size: 24pt;
 	position: relative;
 	left: -10px;
-	top: -155px;
+	top: -250%;
 }
-
+.combBox > .playerName {
+	color:#C0D6D3;
+	position: absolute;
+	top: -3px;
+	left:3%;
+	vertical-align: bottom;
+	font-size: 9pt;
+}
 .combBox  img { 
 	position: relative;
 	top: 5px;
-	width: 40px;
-	height: 40px;
 	padding: 0px;
 	float: left;
 }
+
+.combBox > .hps {
+	color:#C0D6D3;
+	position: absolute;
+	top: 27px;
+	left:13%;
+	vertical-align: text-bottom;
+	font-size: 12pt;
+}
+
+.combBox > .dmg {
+	color:#FF5722;
+	position: absolute;
+	top: 10px;
+	left:13%;
+	vertical-align: text-bottom;
+	font-size: 15pt;
+}
+
 
 #flash1 {
 	position: fixed;
@@ -410,9 +464,28 @@ zooom{
   }
 // 수정 끝.
 		// 表示要素の更新
+		function updateNum(numm){
+			var str=numm;
+			if(str.length <3){
+				for(var x = 0;x < 4 -str.length ;x++){
+					str=''+str;
+				}
+			}
+			return str;		
+		}
+		function updateNumP(numm){
+			var str=numm;
+			if(numm<10){
+				str=''+str;
+			}
+			return str;
+			
+		}
 		function update(data) {
 			var encDiv = document.getElementById("encounter2");
+			
 			var deathCounts=0;
+			var endCombat=parseInt(parseActFormat("{deaths}" , data.Encounter));
 			// DRAWS TITLE  +  "<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>"
 			encDiv.innerHTML =	"<table cellspacing=0 cellpadding=0 font-size:7px ><tr><td width=80%>" +parseActFormat(" {CurrentZoneName}" , data.Encounter)+"</td>" ;
 			if(parseActFormat("{title}" , data.Encounter)=="Encounter"){
@@ -425,32 +498,40 @@ zooom{
 			"-总"+parseInt(parseActFormat("{damage}" , data.Encounter)) + "】</td></tr></table>"+"</td><td align='left'>";+"</td44></tr></table>";
 			encDiv.innerHTML +="<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>";
 			// RANKING, THIS VAR STORES DATA TO BE DISPLAYED
+			//团灭自动停止统计数据
+			if (endCombat>=8){
+				//OverlayPluginApi.endEncounter();
+				//OverlayPluginApi.endEncounter();
+			}
 			ranking = new Array(Object.keys(data.Combatant).length);
 			var i = 0;
 			maxHit = 0;
 			for(var combName in data.Combatant) {
 				if(!data.Combatant.hasOwnProperty(combName)) continue;
 				
+				
+				
+				
 				ranking[i] = {};
+				ranking[i].crth=data.Combatant[combName]["crithits"];
+				ranking[i].hfld=data.Combatant[combName]["hitfailed"];
 				ranking[i].name = data.Combatant[combName]["name"];
+				//ranking[i].hps  = parseInt(data.Combatant[combName]["enchps"].replace(/[\.,]+/g), ".").toFixed(0);
 				ranking[i].dps  = parseInt(data.Combatant[combName]["encdps"].replace(/[\.,]+/g), ".").toFixed(0);
-				ranking[i].hps  = parseFloat(data.Combatant[combName]["enchps"].replace(/[\.,]+/g) ,".").toFixed(1);
+				ranking[i].hps  = parseFloat(data.Combatant[combName]["enchps"].replace(/[\.,]+/g) ,".").toFixed(0);
 				ranking[i].dmg  = parseInt(data.Combatant[combName]["damage"]);
 				ranking[i].dmgp = data.Combatant[combName]["damage%"];
 				ranking[i].hitss =parseInt(data.Combatant[combName]["swings"]);
 				ranking[i].death =data.Combatant[combName]["deaths"];
 				ranking[i].dhc =data.Combatant[combName]["DirectHitCount"];
-				ranking[i].dhit =parseInt(data.Combatant[combName]["DirectHitCount"])+"次直击:"+parseFloat(data.Combatant[combName]["DirectHitPct"]).toFixed(1)+"%";//+","+data.Combatant[combName]["CritDirectHitCount"]+"次直暴";
-				ranking[i].dchp = data.Combatant[combName]["CritDirectHitCount"]+"次直暴:"+(((data.Combatant[combName]["CritDirectHitCount"])/(parseInt(data.Combatant[combName]["swings"])))*100).toFixed(1)+"%";//             +data.Combatant[combName]["CritDirectHitPct"]*100;
-				ranking[i].crtp = parseInt(data.Combatant[combName]["crithits"])+"次暴击:"+ (parseInt(data.Combatant[combName]["crithits"]) / parseInt(data.Combatant[combName]["swings"]) * 100).toFixed(1)+"%";
+				ranking[i].dhit =updateNum(data.Combatant[combName]["DirectHitCount"])+"次直击:"+updateNumP(parseFloat(data.Combatant[combName]["DirectHitPct"]).toFixed(1))+"%";//+","+data.Combatant[combName]["CritDirectHitCount"]+"次直暴";
+				ranking[i].dchp = updateNum(data.Combatant[combName]["CritDirectHitCount"])+"次直暴:"+updateNumP((((data.Combatant[combName]["CritDirectHitCount"])/(parseInt(data.Combatant[combName]["swings"])))*100).toFixed(1))+"%";//             +data.Combatant[combName]["CritDirectHitPct"]*100;
+				ranking[i].crtp = updateNum(data.Combatant[combName]["crithits"])+"次暴击:"+ updateNumP((parseInt(data.Combatant[combName]["crithits"]) / parseInt(data.Combatant[combName]["swings"]) * 100).toFixed(1))+"%";
 				ranking[i].max  = parseInt(data.Combatant[combName]["MAXHIT"].replace(/[\.,]+/g ,""));
 				ranking[i].maxn= data.Combatant[combName]["maxhit"];
 				//(data.Combatant[combName]["MAXHIT"].substring(0,1));
 				ranking[i].deathcountss=0;
-				
-				ranking[i].miss = parseInt(data.Combatant[combName]["misses"]);
-				
-				
+				ranking[i].miss = parseInt(data.Combatant[combName]["misses"]);	
 				// this is just to grab the correct glow icon
 				ranking[i].job = data.Combatant[combName]["Job"];
 				if(ranking[i].job == undefined || ranking[i].job  == "") {
@@ -540,13 +621,7 @@ zooom{
 					t = 0;
 				}
 				
-				if(ranking[i].deathcountss==1){
-					deathCounts=deathCounts+1;
-				}
-				
-				if(deathCounts>=8){
-					OverlayPluginApi.endEncounter();
-				}
+
 			}
 			
 			//console.log(data);
@@ -608,37 +683,45 @@ zooom{
 					}
 					
 				}
+			var imgCombant="";
 			if (ranking[i].job=="Limit Break"||ranking[i].job=="limit Break"||ranking[i].job=="Limit break"||ranking[i].job=="limit break"||ranking[i].job=="LimitBreak"||ranking[i].job=="limitBreak"||ranking[i].job=="Limitbreak"||ranking[i].job=="limitbreak")
 				{
-					box.innerHTML =" <img src='images/glow/LimitBreak.png' >";
+					imgCombant =" <img src='images/glow/LimitBreak.png' width='40px' height='40px'>";
+					
 				}
 				else
-					 box.innerHTML =" <img src='images/glow/"+ranking[i].job+".png' >";
+					 imgCombant =" <img src='images/glow/"+ranking[i].job+".png' width='40px' height='40px' >";
+					 box.innerHTML+=imgCombant;
 					if(ranking[i].dhc<=0){
 						ranking[i].dhit="";
 						ranking[i].dchp="";
 					}
-					if(ranking[i].miss<=0){
-						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+ "</div><br>";
+					if(ranking[i].crth<=0){
+						ranking[i].crtp="";
+						
 					}
-					else{
-						box.innerHTML += "<div class='playerName" + ((i == myRank)?" me":"") + "'>" + processName(ranking[i].name)+"-"+ ranking[i].miss+"误"+ "</div><br>";
-					}
+						box.innerHTML = "<div class='playerName" + ((i == myRank)?" me":"") + "'>" +imgCombant+ processName(ranking[i].name)+ "</div><br>";
+
 						
 				
 				// writing the deeps or damage
+				if (ranking[i].hps > 0) {
+					box.innerHTML += "<div class='hps' >"  +"<img src='images/rhps.png' width='13px' height='13px' >" +ranking[i].hps+"&nbsp;" +"</div>	";
+				}
 				if (ranking[i].dps > 0) {
 					
 					//box.innerHTML += "<div class='dmg'>"+"["  + ranking[i].hitss+"次攻"+ranking[i].dmgp+ "]" +"&nbsp;" +"</div><br>";
-					box.innerHTML += "<div class='dmg'>"  +"秒" +ranking[i].dps+"&nbsp;" +"</div><br>";
-					
-				} else {
-					if(ranking[i].dmg > 0) {
-						box.innerHTML += "<div class='dmg' style='font-style:italic'>" + ranking[i].dmg + "</div><br>";
-					} else {
-						box.innerHTML += "<div class='dmg'>&nbsp;</div><br>"
+					box.innerHTML += "<div class='dmg' >"  +"<img src='images/rdps.png' width='15px' height='15px' >" +ranking[i].dps+"&nbsp;" +"</div><br>";
 					}
-				}
+				<!-- } else { -->
+					<!-- if(ranking[i].dmg > 0) { -->
+						<!-- box.innerHTML += "<div class='dmg' style='font-style:italic'>" + ranking[i].dmg + "</div><br>"; -->
+					<!-- } else { -->
+						<!-- box.innerHTML += "<div class='dmg'>&nbsp;</div><br>" -->
+					<!-- } -->
+				<!-- } -->
+				
+				
 				// 百分比
 			
 				box.innerHTML += "<div class='max3' align='left'>"+ranking[i].crtp+"</div><br>";
@@ -652,18 +735,20 @@ zooom{
 				if (ranking[i].max > 0) { 
 					if (ranking[i].max == maxHit) {
 						box.innerHTML +="<div class='max1' style='color:gold'>"+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
-						box.innerHTML += "<div class='max' style='color:gold'>"+ ranking[i].hitss+"次攻击"+ranking[i].dmgp+ "</div><br>"+"<div class='max0' style='color:gold'>" +"总-"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max' style='color:gold'>"+ ranking[i].hitss+"次攻无效-"+ranking[i].hfld+ "</div><br>"+"<div class='max0' style='color:gold'>" +ranking[i].dmgp+"总-"+ranking[i].dmg+ "</div><br>";
 					} else {
 						box.innerHTML += "<div class='max1'>" +ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
-						box.innerHTML += "<div class='max'>" + ranking[i].hitss+"次攻击"+ranking[i].dmgp+ "</div><br>"+"<div class='max0' >" +"总:"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max'>" + ranking[i].hitss+"次攻无效-"+ranking[i].hfld+ "</div><br>"+"<div class='max0' >"+ranking[i].dmgp +"总:"+ranking[i].dmg+ "</div><br>";
 					}
 				} else {
 						
-						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"总:"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmgp+"总:"+ranking[i].dmg+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
-					box.innerHTML +=	"<div class='deathcount'>" + ranking[i].death +"亡&nbsp;";	
-					ranking[i].deathcountss=1;
+					box.innerHTML +=	"<div class='deathcount'>" +"x"+ ranking[i].death +"<img src='images/rip.png' width='24px' height='20px' >";	
+				}
+				if(parseInt(ranking[i].miss)>0){
+					box.innerHTML +=	"<div class='misscount'>" + ranking[i].miss +"miss&nbsp;";	
 				}
 				
 			//	if(deathCounts>=1){

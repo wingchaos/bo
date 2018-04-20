@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="stylesheet" type="text/css" href="./css.css">
 <title>波波ACT美化</title>
 	
 	<script src="config/jquery.js"></script>
@@ -28,314 +29,6 @@ document.write(layer.type+"<br>");
 	<!-- background-color: transparent; -->
 	<!-- overflow: hidden; -->
 
-<style>
-
-* {
-	font-family: "微软雅黑";
-	font-weight:bold;
-	font-size:  9pt;
-	color: white;
-	text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
-}
-
-body, html {
-	margin: 0;
-	
-
-}
-
-html {
-	background-image: url('images/handle.png');
-	background-position: bottom right;
-	background-repeat: no-repeat;
-	box-sizing: border-box;
-	height: 100%;
-	background-color: transparent;
-	overflow: hidden;
-}
-
-.demo{
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:-ms-flexbox;
-    display:flex;
-    -webkit-box-pack:justify;
-    -webkit-justify-content:space-between;
-    -ms-flex-pack:justify;
-    justify-content:space-between;
-}
-
-.demo a{
-     width:20%;
-     display:block;
-     height:44px;
-     line-height:44px;
-     text-align:center;
-     border:1px solid #428cc8;
-     color:#666;
-     font-size:16px;
-     margin-bottom:5px;
-     border-radius:3px;
-     background-color:#fefefe;
-     background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#fefefe),color-stop(1,#eee));
-     color:#666;
-     text-decoration:none;
-}
-.td111{ 
-position: absolute;
-opacity: 0;
-right:0px;
-top:0px;
-width:35%;
-height:35px;
-}
-.td11{ 
-position: absolute;
-opacity: 0;
-right:0px;
-top:0px;
-width:100%;
-height:35px;
-}
-.td2{ 
-opacity: 0;
-position: absolute;
-right:0px;
-top:0px;
-width:100%;
-height:35px;
-
-}
-td;
-
-
-#totcov,#totcov2{transition:.5s;}
-#totcov, #totcov2{position:absolute; left:0px; top:0px; bottom:0px; right:0px; padding:5px;}
-#encounter {
-
-    background: rgba(0,0,0,0.5);
-	text-shadow: unset;
-
-    padding: 1px;
-	padding-left: 5px;
-	padding-right: 5px;
-    border-radius: 6px;
-	top:1px;
-	display: flex;
-}
-
-#time1{
-	left: 35%;
-	top: 14px;
-	//color:#98FB98;
-	color:#C0D6D3;
-	font-size:14px;
-	word-break:keep-all;  
-	
-}
-#date1{
-	left: 35%;
-	top: 14px;
-	color:#C0D6D3;
-	font-size:14px;
-	word-break:keep-all;  
-	
-}
-#encounter  td {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	color:#CFC4AF;
-	//color:#FF5722;
-	//font-size: 19pt;
-}
-#encounter  td33 {
-	color: #FF5722;
-	position: absolute;
-	top: -5px;
-	right:10px;;
-
-	font-size: 18pt;
-}
-#encounter  td44 {
-	color: #FF5722;
-	position: absolute;
-	top: 20px;
-	right:0px;;
-
-	font-size: 9pt;
-}
-
-#encounter table {
-	border: none;
-	width: 100%;
-	table-layout : fixed;
-	
-}
-
-.combBox {
-	position: absolute;
-	width: 100%;
-	height: 50px;
-	vertical-align: middle;
-	display: block;
-    padding: 1px;
-    border-radius: 5px;
-	
-}
-
-
-
-
-.combBox > .deathcount {
-	color: yellow;
-	position: absolute;
-	top: 0px;
-	left:0px;
-	font-size: 13pt;
-	opacity: 0.85;
-}
-.combBox > .misscount {
-	color: yellow;
-	position: absolute;
-	top: 63%;
-	left:1px;
-	font-size: 10pt;
-}
-
- .combBox >.max3 {
-	color:#C0D6D3 ;
-	position: absolute;
-	top: 28px;
-	left:35.5%;
-	font-size: 10pt;
-	
-}
-.combBox >.max5 {
-	color:#C0D6D3 ;
-	position: absolute;
-	top: 0px;
-	left:35.5%;
-	font-size: 10pt;
-
-}
- .combBox >.max4 {
-	color:#E2E7C7 ;
-	position: absolute;
-	top: 13px;
-	left:35.5%;
-	font-size: 10pt;
-
-}
-
-
- .combBox >.max1 {
- color:#E2E7C7 ;
-	/*右边上面*/
-	position: absolute;
-	top: 13px;
-	left:70%;
-	font-size: 10pt;
-	
-}
- .combBox >.max {
- color:#C0D6D3 ;
-	/*右边中间*/
-	position: absolute;
-	top: 0px;
-	left:70%;
-	font-size: 9pt;
-	
-}
-
- .combBox >.max0 {
-	//color:#C0D6D3 ;
-	color:#C0D6D3 ;
-	/*右边下面*/
-	position: absolute;
-	top: 28px;
-	left:70%;
-	font-size: 9pt;
-}
-
-
-
-
-.combBox > .rank {
-	text-align: right;
-	opacity: 0.3;
-	font-size: 24pt;
-	position: relative;
-	left: -10px;
-	top: -250%;
-}
-.combBox > .playerName {
-	color:#C0D6D3;
-	position: absolute;
-	top: -3px;
-	left:3%;
-	vertical-align: bottom;
-	font-size: 9pt;
-}
-.combBox  img { 
-	position: relative;
-	top: 5px;
-	padding: 0px;
-	float: left;
-}
-
-.combBox > .hps {
-	color:#C0D6D3;
-	position: absolute;
-	top: 27px;
-	left:13%;
-	vertical-align: text-bottom;
-	font-size: 12pt;
-}
-
-.combBox > .dmg {
-	color:#FF5722;
-	position: absolute;
-	top: 10px;
-	left:13%;
-	vertical-align: text-bottom;
-	font-size: 15pt;
-}
-
-
-#flash1 {
-	position: fixed;
-	width: 100px;
-	height: 100px;
-	left: -200px;
-	background: radial-gradient(closest-side, white 75%, rgba(255, 255, 255, 0));
-	opacity:0;
-	
-}
-#flash2 {
-	position: fixed;
-	width: 800px;
-	height: 100px;
-	left: -500px;
-	background: radial-gradient(closest-side, white 75%, rgba(255, 255, 255, 0));
-	opacity:0;
-	
-}
-
-#flash3{
-    background: rgba(0,0,0,0.5);
-	text-shadow: unset;
-	width: 320px;
-    padding: 1px;
-	padding-left: 5px;
-	padding-right: 5px;
-    border-radius: 6px;
-}
-zooom{
-	
-	zoom:100%;
-}
-</style>
 
 <script>
 		if(!onACTWebSocket)
@@ -464,6 +157,110 @@ zooom{
   }
 // 수정 끝.
 		// 表示要素の更新
+		//替换最强伤害 日文英文为中文
+		function updateMax(str){
+			var strs= new Array(); //定义一数组 
+			strs=str.split("-"); //字符分割
+			switch (strs[0]){    
+			case "フェルクリーヴ":
+				str="FC";
+				break;
+			case "ファウル":
+				str="秽浊";
+				break;
+			case "ストンジャ":
+				str="崩石";
+				break;
+			case "マレフィガ":
+				str="祸星";
+				break;
+			case "クラウンロード":
+				str="王冠之领主";
+				break;
+			case "闘魂旋風脚":
+				str="斗魂脚";
+				break;
+			case "陰陽闘気斬":
+				str="阴阳斩";
+				break;
+			case "乱れ雪月花":
+				str="雪月花";
+				break;
+			case "ピッチパーフェクト":
+				str="完美音调";
+				break;
+			case "リフルジェントアロー":
+				str="辉煌箭";
+				break;
+			case "アク・モーン":
+				str="死亡轮回";
+				break;
+			case "ミアズマバースト":
+				str="溃烂爆发";
+				break;
+			case "ヴァルホーリー":
+				str="赤神圣";
+				break;
+			case "ヴァルフレア":
+				str="赤核爆";
+				break;
+			case "フレッシュ":
+				str="飞刺";
+				break;
+			case "ファイナルヘヴン":
+				str="最终天堂";
+				break;
+			case "アサイズ":
+				str="法令";
+				break;
+			case "ブレイバー":
+				str="勇猛烈斩";
+				break;
+			case "ブレードダンス":
+				str="刀光剑舞";
+				break;
+			case "スカイシャード":
+				str="苍穹破碎";
+				break;
+			case "プチメテオ":
+				str="星体风暴";
+				break;
+			case "メテオ":
+				str="陨石流星";
+				break;
+			case "ヴァーミリオンスカージ":
+				str="赤红灾变";
+				break;
+			case "ハイマルストーム":
+				str="严冬风暴";
+				break;
+			case "コメットインパクト":
+				str="星屑冲击";
+				break;
+			case "メテオインパクト":
+				str="陨石冲击";
+				break;
+			case "デスペラード":
+				str="亡命暴徒";
+				break;
+			case "蒼天のドラゴンダイブ":
+				str="苍穹龙炎";
+				break;
+			case "サジタリウスアロー":
+				str="射手天箭";
+				break;
+			case "サテライトビーム":
+				str="卫星光束";
+				break;
+			case "テラフレア":
+				str="万亿核爆";
+				break;
+			default:
+				str=strs[0];	
+			
+			}
+			return str+"-"+strs[1];
+		}
 		function updateNum(numm){
 			var str=numm;
 			if(str.length <3){
@@ -734,10 +531,10 @@ zooom{
 
 				if (ranking[i].max > 0) { 
 					if (ranking[i].max == maxHit) {
-						box.innerHTML +="<div class='max1' style='color:gold'>"+ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
+						box.innerHTML +="<div class='max1' style='color:gold'>"+updateMax(ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ""))+ "</div>";
 						box.innerHTML += "<div class='max' style='color:gold'>"+ ranking[i].hitss+"次攻无效-"+ranking[i].hfld+ "</div><br>"+"<div class='max0' style='color:gold'>" +ranking[i].dmgp+"总-"+ranking[i].dmg+ "</div><br>";
 					} else {
-						box.innerHTML += "<div class='max1'>" +ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "")+ "</div>";
+						box.innerHTML += "<div class='max1'>" +updateMax(ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ""))+ "</div>";
 						box.innerHTML += "<div class='max'>" + ranking[i].hitss+"次攻无效-"+ranking[i].hfld+ "</div><br>"+"<div class='max0' >"+ranking[i].dmgp +"总:"+ranking[i].dmg+ "</div><br>";
 					}
 				} else {

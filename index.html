@@ -532,10 +532,10 @@ document.write(layer.type+"<br>");
 
 				if (ranking[i].max > 0) { 
 				//	updateMaxtoCN(ranking[i].maxn);
-				updateload(ranking[i].maxn);
+			
 					if (ranking[i].max == maxHit) {
 						
-						//box.innerHTML +="<div class='max1' style='color:gold'>"+(ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ""))+ "</div>";
+						box.innerHTML +="<div class='max1' style='color:gold'>"+(ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ""))+ "</div>";
 						
 						box.innerHTML += "<div class='max' style='color:gold'>"+ ranking[i].hitss+"次攻无效-"+ranking[i].hfld+ "</div><br>"+"<div class='max0' style='color:gold'>" +ranking[i].dmgp+"总-"+ranking[i].dmg+ "</div><br>";
 					} else {
@@ -546,6 +546,7 @@ document.write(layer.type+"<br>");
 						
 						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +ranking[i].dmgp+"总:"+ranking[i].dmg+ "</div><br>";
 				}
+					updateload(ranking[i].maxn);
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='deathcount'>" +"x"+ ranking[i].death +"<img src='images/rip.png' width='24px' height='20px' >";	
 				}

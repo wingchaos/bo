@@ -328,8 +328,8 @@ document.write(layer.type+"<br>");
 				ranking[i].max  = parseInt(data.Combatant[combName]["MAXHIT"].replace(/[\.,]+/g ,""));
 				ranking[i].maxn= data.Combatant[combName]["maxhit"];
 				//(data.Combatant[combName]["MAXHIT"].substring(0,1));
-				
-				ranking[i].maxn=updateMaxtoCN(ranking[i].maxn.toString())+"-"+ranking[i].max;
+			//取消转换	
+			//	ranking[i].maxn=updateMaxtoCN(ranking[i].maxn.toString())+"-"+ranking[i].max;
 				
 				ranking[i].deathcountss=0;
 				ranking[i].miss = parseInt(data.Combatant[combName]["misses"]);	

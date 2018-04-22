@@ -9,7 +9,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <link rel="stylesheet" type="text/css" href="./css.css">
 <script type="text/javascript" src="config/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="config/jquery.i18n.properties-min-1.0.9.js"></script>
 <title>波波ACT美化</title>
 	
 		<script>var wsUri = "ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/</script>
@@ -737,23 +736,23 @@ document.write(layer.type+"<br>");
 				});
 				
 			//汉化	
-			function updateMaxtoCN(str){
-				var strs= new Array(); //定义一数组 
-				strs=str.split("-"); //字符分割
-		   		jQuery.i18n.properties({
-		            name : 'strings', //资源文件名称
-		            path : 'js/', //资源文件路径
-		            mode : 'both', //用Map的方式使用资源文件中的值
-		            language :'zh',
-		            callback : function() {//加载成功后设置显示内容
+//			function updateMaxtoCN(str){
+//				var strs= new Array(); //定义一数组 
+//				strs=str.split("-"); //字符分割
+//		   		jQuery.i18n.properties({
+//		            name : 'strings', //资源文件名称
+//		            path : 'js/', //资源文件路径
+//		            mode : 'both', //用Map的方式使用资源文件中的值
+//		            language :'zh',
+//		            callback : function() {//加载成功后设置显示内容
 		               // $('.button_login').val($.i18n.prop('Login'));
 		              //  $('#label_username').html($.i18n.prop('User Name'));
-		                str=jQuery.i18n.prop(strs[0]);
+//		                str=jQuery.i18n.prop(strs[0]);
 		              //  $('.encounter2').html($.i18n.prop(strs[0]));
 		                //$('#encounter2').html($.i18n.prop(strs[0]));
-		        }});
-		     return str;
-		   }
+//		        }});
+//		     return str;
+//		   }
 	</script>
 </head>
 <body >

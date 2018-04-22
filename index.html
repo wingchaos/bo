@@ -265,7 +265,7 @@ document.write(layer.type+"<br>");
 			var str=numm;
 			if(str.length <3){
 				for(var x = 0;x < 4 -str.length ;x++){
-					str=''+str;
+					str='0'+str;
 				}
 			}
 			return str;		
@@ -273,7 +273,7 @@ document.write(layer.type+"<br>");
 		function updateNumP(numm){
 			var str=numm;
 			if(numm<10){
-				str=''+str;
+				str='0'+str;
 			}
 			return str;
 			

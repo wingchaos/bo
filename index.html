@@ -158,6 +158,8 @@ document.write(layer.type+"<br>");
 // 수정 끝.
 		// 表示要素の更新
 		//替换最强伤害 日文英文为中文
+		
+		
 		function updateMax(str){
 			var strs= new Array(); //定义一数组 
 			strs=str.split("-"); //字符分割
@@ -327,10 +329,10 @@ document.write(layer.type+"<br>");
 				ranking[i].max  = parseInt(data.Combatant[combName]["MAXHIT"].replace(/[\.,]+/g ,""));
 				ranking[i].maxn= data.Combatant[combName]["maxhit"];
 				//(data.Combatant[combName]["MAXHIT"].substring(0,1));
-			//取消转换	
-			//	ranking[i].maxn=updateMaxtoCN(ranking[i].maxn.toString())+"-"+ranking[i].max;
 				
+				ranking[i].maxn=forTest(ranking[i].maxn.toString())+"-"+ranking[i].max;
 				
+				ranking[i].deathcountss=0;
 				ranking[i].miss = parseInt(data.Combatant[combName]["misses"]);	
 				// this is just to grab the correct glow icon
 				ranking[i].job = data.Combatant[combName]["Job"];
@@ -736,23 +738,7 @@ document.write(layer.type+"<br>");
 				});
 				
 			//汉化	
-//			function updateMaxtoCN(str){
-//				var strs= new Array(); //定义一数组 
-//				strs=str.split("-"); //字符分割
-//		   		jQuery.i18n.properties({
-//		            name : 'strings', //资源文件名称
-//		            path : 'js/', //资源文件路径
-//		            mode : 'both', //用Map的方式使用资源文件中的值
-//		            language :'zh',
-//		            callback : function() {//加载成功后设置显示内容
-		               // $('.button_login').val($.i18n.prop('Login'));
-		              //  $('#label_username').html($.i18n.prop('User Name'));
-//		                str=jQuery.i18n.prop(strs[0]);
-		              //  $('.encounter2').html($.i18n.prop(strs[0]));
-		                //$('#encounter2').html($.i18n.prop(strs[0]));
-//		        }});
-//		     return str;
-//		   }
+
 	</script>
 </head>
 <body >
@@ -797,5 +783,8 @@ document.write(layer.type+"<br>");
 	
 </div>
 </div>
+
+<!--<button onclick="forTest('ヘヴィスウィング')" style="top='550px'">emm</button>-->
 </body>
+	<script src="js/lang2.js"></script>
 </html>

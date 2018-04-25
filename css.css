@@ -206,6 +206,7 @@ td;
 	top: 13px;
 	left:70%;
 	font-size: 10pt;
+	white-space:pre;
 	
 }
  .combBox >.max {
@@ -215,6 +216,7 @@ td;
 	top: 0px;
 	left:70%;
 	font-size: 9pt;
+	white-space:pre;
 	
 }
 
@@ -226,6 +228,7 @@ td;
 	top: 28px;
 	left:70%;
 	font-size: 9pt;
+	white-space:pre;
 }
 
 

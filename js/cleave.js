@@ -54,10 +54,10 @@ var tanker = [ "PLD", "WAR", "DRK" ];
 var healer = [ "WHM", "SCH", "AST" ];
 
 var specialist = {
-	"SMN":[ "에기", "카벙클", "EGI", "CARBUNCLE", "エギ", "カーバンクル" ],
-	"SCH":[ "요정", "EOS", "SELENE", "フェアリー" ],
-	"MCH":[ "포탑", "AUTOTURRET", "オートタレット" ],
-	"LMB":[ "LIMIT BREAK", "リミット" ]
+	"SMN":[ "之灵", "宝石兽", "EGI", "CARBUNCLE", "エギ", "カーバンクル" ],
+	"SCH":[ "小仙女", "EOS", "SELENE", "フェアリー" ],
+	"MCH":[ "浮空炮台", "AUTOTURRET", "オートタレット" ],
+	"LMB":[ "极限技","LIMIT BREAK", "リミット" ]
 };
 
 var QueryString = function() 
@@ -95,7 +95,7 @@ try
 		/* FOR LOCAL TEST */
 	//	if (document.location.href.indexOf("file")>-1)
 	//	{
-			wsUri = "ws://act.s1.natapp.cc/MiniParse";
+			wsUri = "ws://127.0.0.1:10501/MiniParse";
 //		}
 	}
 	else

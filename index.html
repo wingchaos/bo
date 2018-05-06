@@ -611,7 +611,8 @@ document.write(layer.type+"<br>");
 				$('#container').css('pointer-events', 'none'); 
 				 $(".td111").click(function(){
 				 //点击停止encounter
-					EndEncounter();
+				//	EndEncounter();
+				webs.overlayAPI('RequestEnd');
 				 });
 				  $(".td11").click(function(){
 				  $(".td11").hide();

@@ -178,6 +178,20 @@ document.write(layer.type+"<br>");
 			return str;
 			
 		}
+function towan(num){
+    var str;
+    if(!isNaN(num))
+    {
+        if(parseInt(num)<10000){
+            str=num;
+         }
+        else{
+      //   str= (parseInt(num))/10000+"万";
+      str= ((parseInt(num))/10000).toFixed(1)+"万";
+        }
+    }
+        return str;
+}
 		function update(data) {
 			var encDiv = document.getElementById("encounter2");
 			var timeDiv=document.getElementById("time1");
@@ -195,7 +209,7 @@ document.write(layer.type+"<br>");
 				encDiv.innerHTML +="<table cellspacing=0 cellpadding=0 font-size:7pt><tr><td width=35% >"  + parseActFormat("{title}" , data.Encounter) +"</td></tr></table>";
 				
 			encDiv.innerHTML +="<td44 align='left'>" + "&nbsp;【"+parseInt(parseActFormat("{deaths}" , data.Encounter))+"亡-秒"+parseFloat(parseActFormat("{dps}" , data.Encounter)).toFixed(0)+
-			"-总"+parseInt(parseActFormat("{damage}" , data.Encounter)) + "】</td></tr></table>"+"</td><td align='left'>";+"</td44></tr></table>";
+			"-总"+towan(parseInt(parseActFormat("{damage}" , data.Encounter))) + "】</td></tr></table>"+"</td><td align='left'>";+"</td44></tr></table>";
 			encDiv.innerHTML +="<td33 align='center'>" + parseActFormat("{duration}" , data.Encounter)+"</td33></tr></table>";
 			// RANKING, THIS VAR STORES DATA TO BE DISPLAYED
 			//团灭自动停止统计数据
@@ -416,7 +430,7 @@ document.write(layer.type+"<br>");
 					}
 				<!-- } else { -->
 					<!-- if(ranking[i].dmg > 0) { -->
-						<!-- box.innerHTML += "<div class='dmg' style='font-style:italic'>" + ranking[i].dmg + "</div><br>"; -->
+						<!-- box.innerHTML += "<div class='dmg' style='font-style:italic'>" + towan(ranking[i].dmg) + "</div><br>"; -->
 					<!-- } else { -->
 						<!-- box.innerHTML += "<div class='dmg'>&nbsp;</div><br>" -->
 					<!-- } -->
@@ -436,14 +450,14 @@ document.write(layer.type+"<br>");
 				if (ranking[i].max > 0) { 
 					if (ranking[i].max == maxHit) {
 						box.innerHTML +="<div class='max1' style='color:gold'>"+(ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ""))+ "</div>";
-						box.innerHTML += "<div class='max' style='color:gold'>"+ "攻击"+ranking[i].hitss+"次 "+ranking[i].dmgp+ "</div><br>"+"<div class='max0' style='color:gold'>" +"总-"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max' style='color:gold'>"+ "攻击"+ranking[i].hitss+"次 "+ranking[i].dmgp+ "</div><br>"+"<div class='max0' style='color:gold'>" +"总-"+towan(ranking[i].dmg)+ "</div><br>";
 					} else {
 						box.innerHTML += "<div class='max1'>" +(ranking[i].maxn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ""))+ "</div>";
-						box.innerHTML += "<div class='max'>" + "攻击"+ranking[i].hitss+"次"+ranking[i].dmgp+ "</div><br>"+"<div class='max0' >" +"总:"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max'>" + "攻击"+ranking[i].hitss+"次"+ranking[i].dmgp+ "</div><br>"+"<div class='max0' >" +"总:"+towan(ranking[i].dmg)+ "</div><br>";
 					}
 				} else {
 						
-						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"总:"+ranking[i].dmg+ "</div><br>";
+						box.innerHTML += "<div class='max'>&nbsp;</div><br>"+"<div class='max1' style='color:gold'>" +"总:"+towan(ranking[i].dmg)+ "</div><br>";
 				}
 				if(parseInt(ranking[i].death)>0){
 					box.innerHTML +=	"<div class='deathcount'>" +"x"+ ranking[i].death +"<img src='images/rip.png' width='24px' height='20px' >";	

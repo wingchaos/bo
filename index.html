@@ -243,8 +243,8 @@ function towan(num){
 				ranking[i].maxn= data.Combatant[combName]["maxhit"];
 				//(data.Combatant[combName]["MAXHIT"].substring(0,1));
 				
-				ranking[i].maxn=forTest(ranking[i].maxn.toString())+":"+ranking[i].max;
-				
+				ranking[i].maxn=forTest(ranking[i].maxn.toString())+":"+towan(ranking[i].max);
+				//设置过万保护
 				ranking[i].deathcountss=0;
 				ranking[i].miss = parseInt(data.Combatant[combName]["misses"]);	
 				// this is just to grab the correct glow icon

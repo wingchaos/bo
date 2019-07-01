@@ -8,6 +8,7 @@ var JobRole = {
  GLD: 'TANK',
  MRD: 'TANK',
  DRK: 'TANK',
+ GNB: 'TANK',
 
  CNJ: 'HEALER',
  WHM: 'HEALER',
@@ -28,6 +29,7 @@ var JobRole = {
  NIN: 'DPS',
  MCH: 'DPS',
  SAM: 'DPS',
+ DNC: 'DPS',
  RDM: 'DPS'
 };
 

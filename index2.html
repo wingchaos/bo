@@ -250,7 +250,7 @@ function tohalf(num){
 				ranking[i].maxn=forTest(ranking[i].maxn.toString())+":"+towan(ranking[i].max);
 				//设置过万保护
 				ranking[i].deathcountss=0;
-				ranking[i].miss = parseInt(data.Combatant[combName]["misses"]);	
+				ranking[i].miss = tohalf(parseInt(data.Combatant[combName]["misses"]));	
 				// this is just to grab the correct glow icon
 				ranking[i].job = data.Combatant[combName]["Job"];
 				if(ranking[i].job == undefined || ranking[i].job  == "") {

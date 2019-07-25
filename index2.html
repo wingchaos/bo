@@ -236,7 +236,7 @@ function towan(num){
 				ranking[i].hitss =parseInt((data.Combatant[combName]["swings"])/2);
 				ranking[i].death =data.Combatant[combName]["deaths"];
 				ranking[i].dhc =(data.Combatant[combName]["DirectHitCount"])/2;
-				ranking[i].dhit =updateNum((data.Combatant[combName]["DirectHitCount"])/2)+"次直击:"+updateNumP(parseFloat((data.Combatant[combName]["DirectHitPct"])/2).toFixed(1))+"%";//+","+data.Combatant[combName]["CritDirectHitCount"]+"次直暴";
+				ranking[i].dhit =updateNum((data.Combatant[combName]["DirectHitCount"]))+"次直击:"+updateNumP(parseFloat((data.Combatant[combName]["DirectHitPct"])/2).toFixed(1))+"%";//+","+data.Combatant[combName]["CritDirectHitCount"]+"次直暴";
 				ranking[i].dchp = updateNum((data.Combatant[combName]["CritDirectHitCount"])/2)+"次直暴:"+updateNumP((((data.Combatant[combName]["CritDirectHitCount"])/(parseInt(data.Combatant[combName]["swings"])))*100).toFixed(1))+"%";//             +data.Combatant[combName]["CritDirectHitPct"]*100;
 				ranking[i].crtp = updateNum((data.Combatant[combName]["crithits"])/2)+"次暴击:"+updateNumP((parseInt(data.Combatant[combName]["crithits"]) / parseInt(data.Combatant[combName]["swings"]) * 100).toFixed(1))+"%";
 				ranking[i].max  = parseInt(data.Combatant[combName]["MAXHIT"].replace(/[\.,]+/g ,""));

@@ -229,7 +229,7 @@ function towan(num){
 				ranking[i].hfld=data.Combatant[combName]["hitfailed"];
 				ranking[i].name = data.Combatant[combName]["name"];
 				//ranking[i].hps  = parseInt(data.Combatant[combName]["enchps"].replace(/[\.,]+/g), ".").toFixed(0);
-				ranking[i].dps  = parseInt(data.Combatant[combName]["encdps"].replace(/[\.,]+/g), ".").toFixed(0);
+				ranking[i].dps  = (parseInt(data.Combatant[combName]["encdps"].replace(/[\.,]+/g), ".")/2).toFixed(0);
 				ranking[i].hps  = parseFloat(data.Combatant[combName]["enchps"].replace(/[\.,]+/g) ,".").toFixed(0);
 				ranking[i].dmg  = parseInt(data.Combatant[combName]["damage"]);
 				ranking[i].dmgp = data.Combatant[combName]["damage%"];
